@@ -1,0 +1,1675 @@
+<script type="text/javascript">
+
+// store list
+var storenum="0"; //default store number
+var store = [];
+store[0]={
+	name:"Citi Plaza",
+	address:"355 Wellington St.",
+	city:"London, ON  N6A 3N7",
+	phone:"(519) 858-3740",
+	email:"citiplaza@primecomms.ca"};
+store[1]={
+	name:"Clarke Road",
+	address:"320 Clarke Rd.",
+	city:"London, ON  N5W 6G4",
+	phone:"(519) 457-7367",
+	email:"clarke@primecomms.ca"};
+store[2]={
+	name:"Hyde Park",
+	address:"1197 Oxford St. West",
+	city:"London, ON  N6H 4N2",
+	phone:"(519) 601-8199",
+	email:"hydepark@primecomms.ca"};
+store[3]={
+	name:"Wellington & Southdale Plaza<br>",
+	address:"981 Wellington Rd. S",
+	city:"London, ON  N6E 3A9",
+	phone:"(519) 686-2084",
+	email:"southdale@primecomms.ca"};
+store[4]={
+	name:"Wonderland & Southdale Plaza<br>",
+	address:"3039 Wonderland Rd. S",
+	city:"London, ON  N6L 1R4",
+	phone:"(519) 691-0876",
+	email:"wonderland@primecomms.ca"};
+store[5]={
+	name:"Fanshawe Park Rd",
+	address:"595 Fanshawe Pk Road W",
+	city:"London, ON  N6G 5B4",
+	phone:"(519) 473-7379",
+	email:"fanshawe@primecomms.ca"};
+store[6]={
+	name:"Elgin Mall",
+	address:"417 Wellington St",
+	city:"St. Thomas, ON  N5R 5J5",
+	phone:"(519) 637-0384",
+	email:"elginmall@primecomms.ca"};
+store[7]={
+	name:"Strathroy",
+	address:"425 Caradoc St S",
+	city:"St. Thomas, ON  N5R 5J5",
+	phone:"(519) 637-0384",
+	email:"elginmall@primecomms.ca"};
+</script>
+
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" content="text/html; charset=ISO-8859-8"/>
+<title>Rogers Bundle Quote</title>
+
+<style type="text/css">
+body {
+	background:#ffffff;
+	font-family: "tahoma", "calibri";
+	-webkit-print-color-adjust:exact; }
+#store-name {
+	font-size: 13px;
+	font-family: arial; 
+	font-weight: 700; 
+	padding: 0px;
+	margin: -7px 50px;
+	position: absolute; }
+.addressbar {
+	border-top:1.5px solid #EF0303;
+	border-bottom:1.5px solid #EF0303;
+	padding: 5px 15px; }
+
+/* Store Dropdown */
+.store_nav {
+	position:relative;
+	list-style:none;
+	float:left;
+	margin:0;
+	padding:0;
+	cursor:hand;
+	z-index:1000;}
+.store_nav ul {
+	list-style:none;
+	display:none;
+	position:absolute;
+	top:100%
+	background:#fff;
+	padding:0; }
+.store_nav ul a {
+	display:block;
+	text-decoration:none;
+	color:#000;
+	cursor:hand; }
+.store_nav ul li {
+	postion: static;
+	width:300px;
+	margin:0;
+	padding:5 30px;
+	background:#fff;
+	font-weight:700; }
+.store_nav li:hover {
+	background:#f0f0f0; }
+.store_nav li:hover > ul {
+	display:block; }
+
+/* Package Dropdown */
+.package_nav {
+	position:relative;
+	list-style:none;
+	float:left;
+	margin:0px 0px;
+	padding:0;
+	font-size: 13px;
+	cursor:hand;}
+.package_nav ul {
+	list-style:none;
+	display:none;
+	position:absolute;
+	margin:0px 0px;
+	padding:0 5px;
+	background:#fff;
+	z-index:999;}
+.package_nav ul a {
+	display:block;
+	text-decoration:none;
+	color:#000;
+	cursor:hand; }
+.package_nav ul li {
+	postion: static;
+	width: 170;
+	margin: 0px;
+	padding: 0px 0px;
+	border-bottom: 1px dotted black;
+	background:#E6F7F9; 
+	z-index:1000;}
+.package_nav li:hover {
+	background: rgba(216, 216, 216, 0.55) }
+.package_nav li:hover > ul {
+	display:block; }
+
+.promo_nav {
+	position:relative;
+	list-style:none;
+	float:left;
+	margin:0px 0px;
+	padding:0;
+	font-size: 13px;
+	cursor:hand;}
+.promo_nav ul {
+	list-style:none;
+	display:none;
+	position:absolute;
+	margin:0px 0px;
+	padding:0 5px;
+	background:#fff;
+	z-index:999;}
+.promo_nav ul a {
+	display:block;
+	text-decoration:none;
+	color:#000;
+	cursor:hand; }
+.promo_nav ul li {
+	postion: static;
+	width: 260;
+	margin: 0px;
+	padding: 0px 0px;
+	border-bottom: 1px dotted black;
+	background:#FFF2D9; 
+	z-index:1000; }
+.promo_nav li:hover > ul {
+	display:block;
+	top:-50px;
+	left: 100px; }
+
+
+/* Cellphone textbox */
+.cell_price {
+	padding: 0;
+    height: 20px;
+    width:  35px;
+    border: 0px;
+    border-bottom: 1px solid #cdcdcd;
+    background-color: white;
+    font-size: 14px;}
+
+.name-print input {
+	padding: 0;
+    height: 18px;
+    width:  150px;
+    border: 0px;
+    background-color: white;
+    border-bottom: 1px solid #cdcdcd;
+    font-size: 13px;}
+ .name-noprint input {
+	padding: 0;
+    height: 18px;
+    width:  150px;
+    border: 0px;
+    border-bottom: 1px solid #cdcdcd;
+    background-color: white;
+    font-size: 13px; }
+
+
+.mytable {
+	border-collapse: separate; 
+	border-spacing: 6px;
+	*border-collapse: expression('separate', cellSpacing = '6px'); 
+	}
+.mytable td {*padding: 3px }
+.header {
+	border-radius: 8px 8px 0px 8px; 
+	background-color: #00AEC7; 
+	font-size: 15px;
+	font-weight: 700;
+	color: white; 
+	text-transform: uppercase;
+}
+.normalrow td {
+	vertical-align: top;}
+.promorow {
+	background-color: #ffbf3f;
+	}
+.promotext {
+	color: rgba(60, 60, 60, 0.6);
+	font-size: 11px;
+	font-weight: 800;}
+.totaltable {
+	background-color: #EF0303;
+	font-size: 14px
+	color: white;
+	border-radius: 0px 0px 8px 8px;
+}
+.totaltext  {
+	font-size: 15px;
+	font-weight: 500;
+	color: white; 
+	text-transform: uppercase;
+	text-align: right;
+}
+.totalprice {
+	font-size: 15px;
+	font-weight: 700;
+	color: white; 
+	text-transform: uppercase;
+	text-align: left;
+}
+.onetotal{
+	border: solid black 2px; 
+	border-radius: 6px 6px 6px 6px; }
+.install select {
+	font-family: arial;
+	font-size: 13px;
+	width:250px; }
+.show { display:marker; }
+.hide { display:none;   }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+	
+</style>
+<style type="text/css" media="print">
+.noprint {
+	display:none;}
+.promorow {
+	background-color: rgba(255, 191, 63, 0.5);}
+.totaltable {
+	background-color: rgba(239,3,3,0.5);}
+.name-noprint {
+	display: none;
+	height: 0px;}
+.name-print input {
+	padding: 0;
+    height: 18px;
+    width:  150px;
+    border: 0px;
+    background-color: white;
+    font-size: 14px;
+    color:black;
+    font-weight: 570; }
+.name-print {
+    font-weight: 570;}
+@page { 
+        size: letter landscape;
+        margin: 5mm 3mm 3mm 3mm; }
+body {
+	margin: 0px;}
+
+
+</style>
+
+</head>
+<BODY>
+
+<!-- Header Bar -->
+<table><tr><td width=350 valign=top><img src="http://cdn.iphoneincanada.ca/wp-content/uploads/2015/03/new-Rogers-tm-pantone-1.jpg" width=240><br><span id="store-name"></span></td>
+<td width=360 class="addressbar">
+	
+
+<table><tr><td width=190>
+<span class="name-noprint"><font size=2><input type="text" id="repname" onchange="printname()" placeholder="Rep Name"></input></span>
+
+<ul class="store_nav"><li><span id="store-address"></span><ul><span id="store-addressdrop"></span></ul></li></ul>
+
+</td></td width=180><td align=right><font size=2>
+<span class="name-noprint">-Sales Representative<br></span>
+<span id="store-contact"></span>
+
+</td></tr></table>
+
+</td></tr></table>
+<font size=1>&nbsp;
+<script>
+/* Create Store dropdown options */
+document.getElementById("store-address").innerHTML=store[storenum].address+"<br>"+store[storenum].city;
+document.getElementById("store-contact").innerHTML=store[storenum].phone+"<br>"+store[storenum].email;
+
+var GenerateStores="";
+var storemax = store.length;
+for (l=0;l<storemax;l++) { 
+GenerateStores+="<li><a href=\"#\" onclick=\"changestore("+l+")\">"+store[l].name+"</a></li>";
+} //end for
+
+document.getElementById("store-addressdrop").innerHTML=GenerateStores;
+document.getElementById("store-name").innerHTML=store[storenum].name+" - Authorized Dealer";
+function changestore (num) {
+storenum=num;
+document.getElementById("store-address").innerHTML=store[storenum].address+"<br>"+store[storenum].city;
+document.getElementById("store-contact").innerHTML=store[storenum].phone+"<br>"+store[storenum].email;
+document.getElementById("store-name").innerHTML=store[storenum].name+" - Authorized Dealer";
+}
+
+//don't print repname if blank
+function printname (){
+	for (i=0;i<2;i++)
+	{
+	document.getElementsByClassName("name-noprint")[0].className ="name-print";
+	}
+} //end hidename
+</script>
+
+
+<table class="mytable" width=1000><tr align=center>
+<td class="header" width="160"><img src="https://rogerssalesassist.com/images/icons/bundle/internet.png" width="20">&nbsp;Internet</td>
+<td class="header" width="150"><img src="https://rogerssalesassist.com/images/icons/bundle/cable.png">&nbsp;TV</td>
+<td class="header" width="150"><img src="https://rogerssalesassist.com/images/icons/bundle/homephone.png">&nbsp;Phone</td>
+<td class="header" width="140"><img src="https://rogerssalesassist.com/images/icons/bundle/smarthomemonitoring.png">&nbsp;<abbr title="Smart Home Monitoring">SHM</abbr></td>
+<td class="header" width="150"><img src="https://rogerssalesassist.com/images/icons/bundle/homephone.png">&nbsp;Wireless</td>
+</tr>
+<tr class="normalrow">
+	
+<!------------------ Internet --------------------->
+<td><ul class="package_nav"><li><span id="internetpackageID"></span>
+<ul>
+<li><a href="#" onclick="changeInternet(0)"><b>No Internet</b><br>&nbsp;</a></li>
+<span id="InternetContent"></span>
+</ul></li></ul>
+</td>
+<script>
+var Internet = [];
+Internet [0] = {
+	name: "Add Internet",
+	price: "0",
+	promo: ""};
+Internet [1] = {
+	name: "Internet 5",
+	price: "32.99",
+	speedD: "5 Mbps",
+	speedU: "1 Mbps",
+	usage: "25 GB",
+	features: "<li>&#8226;WiFi Modem Included</li>",
+	promo: ""};
+Internet [2] = {
+	name: "Internet 15",
+	price: "53.99",
+	speedD: "15 Mbps",
+	speedU: "1 Mbps",
+	usage: "50 GB",
+	features: "<li>&#8226;WiFi Modem Included</li>",
+	promo: ""};
+Internet [3] = {
+	name: "Ignite 30",
+	price: "67.99",
+	speedD: "30 Mbps",
+	speedU: "5 Mbps",
+	usage: "125 GB",
+	features: "<li>&#8226;WiFi Modem Included</li>",
+	promo: ""};
+Internet [4] = {
+	name: "Ignite 60",
+	price: "77.99",
+	speedD: "60 Mbps",
+	speedU: "10 Mbps",
+	usage: "200 GB",
+	features: "<li>&#8226;Rocket WiFi Modem Included</li>",
+	promo: "<li>&#8226;Shomi&#8482; Free for 2 years</li><li>&#8226;Free NHL GamCentre LIVE&#8482; 2015-16 pass</li>"};
+Internet [5] = {
+	name: "Ignite 100u",
+	price: "87.99",
+	speedD: "100 Mbps",
+	speedU: "10 Mbps",
+	usage: "<font size=2>&#8734;</font> Unlimited",
+	features: "<li>&#8226;Rocket WiFi Modem Included</li>",
+	promo: "<li>&#8226;Shomi&#8482; Free for 2 years</li><li>&#8226;Free NHL GamCentre LIVE&#8482; 2015-16 pass</li>"};
+Internet [6] = {
+	name: "Ignite 250u",
+	price: "97.99",
+	speedD: "250 Mbps",
+	speedU: "20 Mbps",
+	usage: "<font size=2>&#8734;</font> Unlimited",
+	features: "<li>&#8226;Rocket WiFi Modem Included</li>",
+	promo: "<li>&#8226;Shomi&#8482; Free for 2 years</li><li>&#8226;Free NHL GamCentre LIVE&#8482; 2015-16 pass</li>"};
+Internet [7] = {
+	name: "Ignite Gigabit",
+	price: "149.99",
+	speedD: "1000 Mbps",
+	speedU: "20 Mbps",
+	usage: "<font size=2>&#8734;</font> Unlimited",
+	features: "<li>&#8226;Rocket WiFi Modem Included</li>",
+	promo: "<li>&#8226;Shomi&#8482; Free for 2 years</li><li>&#8226;Free NHL GamCentre LIVE&#8482; 2015-16 pass</li>"};
+
+/* Create Internet Package dropdown options */
+var GenerateInternet="";
+for (loop=1;loop<Internet.length;loop++)
+{ 
+	GenerateInternet+="<li><a href=\"#\" onclick=\"changeInternet("+loop+")\"><b>"+Internet[loop].name+"</b><br>$"+Internet[loop].price+"</a></li>";
+} //end for
+
+document.getElementById("InternetContent").innerHTML=GenerateInternet;
+document.getElementById("internetpackageID").innerHTML=Internet[0].name+"&nbsp; &#9660;";
+var IntSel=0;
+
+function changeInternet (num) {
+IntSel=num
+if (IntSel==0) {
+	document.getElementById("internetpackageID").innerHTML=Internet[IntSel].name+"&nbsp; &#9660;";
+	document.getElementById("IntPromopackageID").innerHTML=IntPromo[IntSel].name+"&nbsp; &#9660;";
+	} //end if
+else {
+document.getElementById("internetpackageID").innerHTML="<b>"+Internet[IntSel].name+"</b><br>$"+Internet[IntSel].price+"/month<br><font size=2><b>&#8595;</font><font size=1>"+Internet[IntSel].speedD+"&nbsp; <font size=2>&#8593;</font>"+Internet[IntSel].speedU+"<br>"+Internet[IntSel].usage+" usage</b><br>"+Internet[IntSel].features;	
+changeIntPromo(0);
+} //end else
+changeIntPromo(0);
+calculate();
+}  //end function
+
+</script>
+
+<!------------- TV -------------------->
+<td><ul class="package_nav"><li><span id="TVpackageID"></span>
+<ul>
+<li><a href="#" onclick="changeTV(0)">No TV<br></a></li>
+<span id="TVContent"></span>
+</ul></li></ul>
+
+<!-- cable boxes -->
+<p><ul class="package_nav"><li><span id="BoxID1"></span>
+<ul>
+<li><a href="#" onclick="changeBox(1,0)"><b>Add Cable Box</b><br>&nbsp;</a></li>
+<span id="BoxContent1"></span>
+</ul></li></ul></p>
+
+<p><ul class="package_nav"><li><span id="BoxID2"></span>
+<ul>
+<li><a href="#" onclick="changeBox(2,0)"><b>Add Cable Box</b><br>&nbsp;</a></li>
+<span id="BoxContent2"></span>
+</ul></li></ul></p>
+
+<p><ul class="package_nav"><li><span id="BoxID3"><br><br></span>
+<ul>
+<li><a href="#" onclick="changeBox(3,0)"><b>Add Cable Box</b><br>&nbsp;</a></li>
+<span id="BoxContent3"></span>
+</ul></li></ul></p>
+
+<p><ul class="package_nav"><li><span id="BoxID4"><br><br></span>
+<ul>
+<li><a href="#" onclick="changeBox(4,0)"><b>Add Cable Box</b><br>&nbsp;</a></li>
+<span id="BoxContent4"></span>
+</ul></li></ul></p>
+
+<p><ul class="package_nav"><li><span id="BoxID5"><br><br></span>
+<ul>
+<li><a href="#" onclick="changeBox(5,0)"><b>Add Cable Box</b><br>&nbsp;</a></li>
+<span id="BoxContent5"></span>
+</ul></li></ul></p>
+
+</td>
+<script>
+
+var TV = [];
+
+TV [0] = {
+	name: "Add TV",
+	price: "0"};
+TV [1] = {
+	name: "Digital Starter",
+	price: "24.99",
+	channels: "85+",
+	features: "<li>&#8226;Basic TV Package</li><li>&#8226;Rogers OnDemand</li><li>&#8226;Add additonal Channel theme packs from $3-18/month</li>",
+	promo: ""};
+TV [2] = {
+	name: "Digital Basic",
+	price: "40.48",
+	channels: "225+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Some Sports and Specialty Channels</li>",
+	promo: ""};
+TV [3] = {
+	name: "Digital Plus",
+	price: "65.99",
+	channels: "280+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Specialty Channels</li><li>&#8226;Sports Channels</li>",
+	promo: ""};
+TV [4] = {
+	name: "Extra Plus",
+	price: "79.98",
+	channels: "315+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Specialty Channels</li><li>&#8226;Sports Channels</li><li>&#8226;Lifestyle Channels</li><li>&#8226;One Free Premium Package</li>",
+	promo: ""};
+TV [5] = {
+	name: "Extra Lifestyle",
+	price: "79.98",
+	channels: "315+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Specialty Channels</li><li>&#8226;Lifestyle Channels</li><li>&#8226;One Free Premium Package</li>",
+	promo: ""};
+TV [6] = {
+	name: "Extra Sports",
+	price: "79.98",
+	channels: "315+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Specialty Channels</li><li>&#8226;Sports Channels</li><li>&#8226;One Free Premium Package</li>",
+	promo: ""};
+TV [7] = {
+	name: "Digital VIP",
+	price: "79.98",
+	channels: "365+",
+	features: "<li>&#8226;Rogers OnDemand</li><li>&#8226;Commerial-Free Radio</li><li>&#8226;Specialty Channels</li><li>&#8226;Family Channels</li><li>&#8226;Sports Channels</li><li>&#8226;Lifestyle Channels</li>",
+	promo: ""};
+
+
+/* Create TV Package dropdown options */
+var GenerateTV="";
+for (loop=1;loop<TV.length;loop++)
+{ 
+	GenerateTV+="<li><a href=\"#\" onclick=\"changeTV("+loop+")\"><b>"+TV[loop].name+"</b><br>$"+TV[loop].price+"</a></li>";
+} //end for
+
+document.getElementById("TVContent").innerHTML=GenerateTV;
+document.getElementById("TVpackageID").innerHTML=TV[0].name+"&nbsp; &#9660;";
+var TVSel=0;
+function changeTV (num) {
+TVSel=num
+if (TVSel==0) {
+	document.getElementById("TVpackageID").innerHTML=TV[TVSel].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("TVpackageID").innerHTML="<b>"+TV[TVSel].name+"</b><br>$"+TV[TVSel].price+"/month<br><font size=1><b>"+TV[TVSel].channels+" Channels</b><br>"+TV[TVSel].features;	
+	} //end else
+	//show cablebox 1
+	document.getElementById("BoxID1").className="show";
+calculate ();
+}  //end function
+
+
+/* Create Cablebox dropdown options */
+var cablebox = [];
+cablebox [0] = {
+	name: "No Cable Box",
+	price: "0"};
+cablebox [1] = {
+	name: "Own Cable Box",
+	price: "0",
+	desc: ""};
+cablebox [2] = {
+	name: "Nextbox 3.0 PVR",
+	desc: "<li>&#8226;Record 8 programs simulataneously</li><li>&#8226;Whole-Home PVR compatible</li>",
+	price: "24.95"};
+cablebox [3] = {
+	name: "Nextbox HD Terminal",
+	desc: "<li>&#8226;HD channels and digital content</li><li>&#8226;Whole-Home PVR compatible</li>",
+	price: "12.95"};
+cablebox [4] = {
+	name: "SD Digital Terminal",
+	desc: "<li>&#8226;SD channels and digital content</li>",
+	price: "5.45"};
+cablebox [5] = {
+	name: "Nextbox 4k Terminal",
+	desc: "<li>&#8226;UHD Terminal for 4K channels digital content</li><li>&#8226;Whole-Home PVR compatible</li>",
+	price: "12.95"};
+cablebox [6] = {
+	name: "Digital Adapter",
+	desc: "<li>&#8226;Basic channels on older TV",
+	price: "0"};
+cablebox [7] = {
+	name: "Discounted HD Terminal",
+	desc: "<li>&#8226;Bundle discount pricing</li><li>&#8226;HD channels and digital content</li><li>&#8226;Whole-Home PVR compatible</li>",
+	price: "7.50"};
+var GenerateBox="";
+var BoxSel=[];
+var BoxCount=1;
+var maxbox=5;
+for (num=1;num<(maxbox+1);num++)
+{ 
+	for (type=1;type<cablebox.length;type++)
+	{
+		BoxSel[num]=0;
+		GenerateBox+="<li><a href=\"#\" onclick=\"changeBox("+num+","+type+")\"><b>"+cablebox[type].name+"</b><br>$"+cablebox[type].price+"</a></li>";
+	}
+	document.getElementById("BoxContent"+num).innerHTML=GenerateBox;
+	//hide unused boxes
+	document.getElementById("BoxID"+num).className="hide";
+	document.getElementById("BoxID"+num).innerHTML="Add Cable Box&nbsp; &#9660;";
+	GenerateBox="";
+} //end for
+
+function changeBox (num, type) {
+
+BoxSel[num]=type;
+if (BoxSel[num]==0) {
+	document.getElementById("BoxID"+num).innerHTML=cablebox[BoxSel[num]].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("BoxID"+num).innerHTML="<b>"+cablebox[BoxSel[num]].name+"</b><br>$"+cablebox[BoxSel[num]].price+"/month<br><font size=1>"+cablebox[BoxSel[num]].desc;	
+	} //end else
+if (num==BoxCount && num<maxbox){
+		document.getElementById("BoxID"+(Number(num)+1)).className="show";
+		BoxCount++;
+	}
+calculate ();
+}  //end changeBox function
+
+</script>
+
+<!------------------------ Phone --------------------------->
+<td><ul class="package_nav"><li><span id="RHPpackageID"></span>
+<ul>
+<li><a href="#" onclick="changeRHP(0)">No Home Phone<br>&nbsp;</a></li>
+<span id="RHPContent"></span>
+</ul></li></ul>
+
+<!-- Addons -->
+<p><ul class="package_nav"><li><span id="LDID1"></span>
+<ul>
+<li><a href="#" onclick="changeLD(1,0)"><b>Add Long Distance</b><br>&nbsp;</a></li>
+<span id="LDContent1"></span>
+</ul></li></ul></p>
+
+
+<p><ul class="package_nav"><li><span id="LDID2"></span>
+<ul>
+<li><a href="#" onclick="changeLD(2,0)"><b>Add Long Distance</b><br>&nbsp;</a></li>
+<span id="LDContent2"></span>
+</ul></li></ul></p>
+
+</td>
+<script>
+
+var RHP = [];
+
+RHP [0] = {
+	name: "Add Phone",
+	price: "0",
+	promo: ""};
+RHP [1] = {
+	name: "Essential",
+	price: "37.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;Standard LD ($0.20/min)</li><li>&#8226;No Calling Features</li>",
+	promo: ""};
+RHP [2] = {
+	name: "Essential + 500 NA LD",
+	price: "47.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;500 min Free NA LD</li><li>&#8226;No Calling Features</li>",
+	promo: ""};
+RHP [3] = {
+	name: "Favourites",
+	price: "47.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;Standard LD ($0.20/min)</li><li>&#8226;2 Calling Features included</li>",
+	promo: ""};
+RHP [4] = {
+	name: "Favourites + 500 NA LD",
+	price: "52.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;500 min Free NA LD</li><li>&#8226;2 Calling Features included</li>",
+	promo: ""};
+RHP [5] = {
+	name: "Deluxe",
+	price: "52.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;Standard LD ($0.20/min)</li><li>&#8226;6 Calling Features included</li>",
+	promo: ""};
+RHP [5] = {
+	name: "Deluxe + 500 NA LD",
+	price: "57.91",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;500 min Free NA LD</li><li>&#8226;6 Calling Features included</li>",
+	promo: ""};
+RHP [6] = {
+	name: "Canada-wide Bundle",
+	price: "24.99",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;TV Call Display included</li><li>&#8226;Home & Away Voicemail included</li><li>&#8226;Call Waiting included</li>",
+	promo: "<li>&#8226;Free Canadian-wide LD</li>"};
+RHP [7] = {
+	name: "International Bundle",
+	price: "39.99",
+	features: "<li>&#8226;Unlimited local calling</li><li>&#8226;6 Calling Features included</li>",
+	promo: "<li>&#8226;Free Can & USA LD</li><li>&#8226;500min Free Global LD</li>"};
+
+
+/* Create RHP Package dropdown options */
+var GenerateRHP="";
+for (loop=1;loop<RHP.length;loop++)
+{ 
+	GenerateRHP+="<li><a href=\"#\" onclick=\"changeRHP("+loop+")\"><b>"+RHP[loop].name+"</b><br>$"+RHP[loop].price+"</a></li>";
+} //end for
+
+document.getElementById("RHPContent").innerHTML=GenerateRHP;
+document.getElementById("RHPpackageID").innerHTML=RHP[0].name+"&nbsp; &#9660;";
+var RHPSel=0;
+
+function changeRHP (num) {
+RHPSel=num
+if (RHPSel==0) {
+	document.getElementById("RHPpackageID").innerHTML=RHP[RHPSel].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("RHPpackageID").innerHTML="<b>"+RHP[RHPSel].name+"</b><br>$"+RHP[RHPSel].price+"/month<br><font size=1>"+RHP[RHPSel].features;	
+	} //end else
+	document.getElementById("LDID1").className="show";
+calculate ();
+changeRHPPromo(0);
+}  //end function
+
+/* Create Long Distance options */
+var longdistance = [];
+longdistance [0] = {
+	name: "No Long Distance",
+	price: "0"};
+longdistance [1] = {
+	name: "Standard Rate",
+	price: "0",
+	desc: "<li>&#8226;Calls to Canada and US for $0.20/min</li>"};
+longdistance [2] = {
+	name: "Whole World",
+	desc: "<li>&#8226;Call Internationally for as low as $0.01/min</li><li>&#8226;Call Canada and US for $0.05/min</li>",
+	price: "3.00"};
+longdistance [3] = {
+	name: "Unlimited North America",
+	desc: "<li>&#8226;Unlimited calling to Canada and US</li><li>&#8226;Save on LD calling internationally</li>",
+	price: "19.95"};
+longdistance [4] = {
+	name: "Unlimited Europe",
+	desc: "<li>&#8226;Unlimited landline calling to 19 European countries</li><li>&#8226;Call Canada and US for $0.05/min</li>",
+	price: "24.95"};
+longdistance [5] = {
+	name: "Unlimited Asia",
+	desc: "<li>&#8226;Unlimited calling to 7 Asian countries</li><li>&#8226;Call Canada and US for $0.05/min</li>",
+	price: "24.95"};
+	
+
+var GenerateLD="";
+var LDSel=[];
+var LDCount=1;
+var maxld=2;
+for (num=1;num<(maxld+1);num++)
+{ 
+	for (type=1;type<longdistance.length;type++)
+	{
+		LDSel[num]=0;
+		GenerateLD+="<li><a href=\"#\" onclick=\"changeLD("+num+","+type+")\"><b>"+longdistance[type].name+"</b><br>$"+longdistance[type].price+"</a></li>";
+	}
+	document.getElementById("LDContent"+num).innerHTML=GenerateLD;
+	//hide unused LD
+	document.getElementById("LDID"+num).className="hide";
+	document.getElementById("LDID"+num).innerHTML="Add Long Distance&nbsp; &#9660;";
+	GenerateLD="";
+} //end for
+
+function changeLD (num, type) {
+
+LDSel[num]=type;
+if (LDSel[num]==0) {
+	document.getElementById("LDID"+num).innerHTML=longdistance[LDSel[num]].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("LDID"+num).innerHTML="<b>"+longdistance[LDSel[num]].name+"</b><br>$"+longdistance[LDSel[num]].price+"/month<br><font size=1>"+longdistance[LDSel[num]].desc;	
+	} //end else
+if (num==BoxCount){
+		document.getElementById("LDID"+(Number(num)+1)).className="show";
+		LDCount++;
+	}
+calculate ();
+}  //end changeLD function
+
+
+
+
+</script>
+
+<!--------------------- SHM ------------------------->
+<td><ul class="package_nav"><li><span id="SHMpackageID"></span>
+<ul>
+<li><a href="#" onclick="changeSHM(0)">No SHM<br></a></li>
+<span id="SHMContent"></span>
+</ul></li></ul>
+</td>
+<script>
+
+var SHM = [];
+
+SHM [0] = {
+	name: "Add SHM",
+	price: "0"};
+SHM [1] = {
+	name: "Aware",
+	price: "19.99",
+	features: "<li>&#8226;Touch Pad</li><li>&#8226;Door/Window Sensor</li><li>&#8226;Smart Light Bulb</li><li>&#8226;Small Appliance Module</li>"};
+SHM [2] = {
+	name: "Protect",
+	price: "39.99",
+	features: "<li>&#8226;Touch Pad</li><li>&#8226;Central Monitoring</li><li>&#8226;Door/Window Sensor</li><li>&#8226;Motion Sensor</li><li>&#8226;Smart Light Bulb</li>"};
+SHM [3] = {
+	name: "Assure",
+	price: "44.99",
+	features: "<li>&#8226;Touch Pad</li><li>&#8226;Central Monitoring</li><li>&#8226;Door/Window Sensor</li><li>&#8226;Motion Sensor</li><li>&#8226;Smart Light Bulb</li><li>&#8226;Day/Night Camera</li>"};
+SHM [4] = {
+	name: "Control",
+	price: "54.99",
+	features: "<li>&#8226;Touch Pad</li><li>&#8226;Central Monitoring</li><li>&#8226;Door/Window Sensor</li><li>&#8226;Motion Sensor</li><li>&#8226;Smart Light Bulb</li><li>&#8226;Day/Night Camera</li><li>&#8226;Smoke Sensor</li><li>&#8226;CO Sensor</li><li>&#8226;Water Leak Sensor</li><li>&#8226;Small Appliance Module</li><li>&#8226;Smart Thermostat</li>"};
+
+/* Create SHM Package dropdown options */
+var GenerateSHM="";
+for (loop=1;loop<SHM.length;loop++)
+{ 
+	GenerateSHM+="<li><a href=\"#\" onclick=\"changeSHM("+loop+")\"><b>"+SHM[loop].name+"</b><br>$"+SHM[loop].price+"</a></li>";
+} //end for
+
+document.getElementById("SHMContent").innerHTML=GenerateSHM;
+document.getElementById("SHMpackageID").innerHTML=SHM[0].name+"&nbsp; &#9660;";
+var SHMSel=0;
+function changeSHM (num) {
+SHMSel=num
+if (SHMSel==0) {
+	document.getElementById("SHMpackageID").innerHTML=SHM[SHMSel].name+"&nbsp; &#9660;";
+	} //end if
+else {
+document.getElementById("SHMpackageID").innerHTML="<b>"+SHM[SHMSel].name+"</b><br>$"+SHM[SHMSel].price+"/month<br><font size=1>"+SHM[SHMSel].features;	
+} //end else
+calculate ();
+}  //end function
+</script>
+
+<!----------------------- Wireless ------------------------------>
+<td>
+<div id="WirelessContent"></div>
+</td>
+<script>
+
+var Cell = [];
+
+Cell [0] = {
+	name: "Add Wireless Phone",
+	promo: ""};
+Cell [1] = {
+	name: "Historical Plan",
+	features: "<li>&#8226;No bonus</li>",
+	promo: ""};
+Cell [2] = {
+	name: "Share Everything Plan +",
+	features: "<li>&#8226;Unlimited Calling & Text</li><li>&#8226;Share up to 60GB of data with 10 devices</li><li>&#8226;Roam Like Home</li>",
+	promo: "<li>&#8226;Free NHL GameCentre LIVE&#8482; 2015-16 pass</li><li>&#8226;Free Experience for 2 years</li><li>&#8226;Add Tablet for $0 upfront on EasyPay</li>"};
+Cell [3] = {
+	name: "Talk & Text",
+	features: "<li>&#8226;Save up to $150 on a new device</li>",
+	promo: ""};
+Cell [4] = {
+	name: "No Tab",
+	features: "<li>&#8226;Save up to $20/month on your plan</li>",
+	promo: ""};
+Cell [5] = {
+	name: "Smart Tab",
+	features: "<li>&#8226;Save up to $400 on a new device</li><li>&#8226;Save up to $10/month on your plan</li>",
+	promo: ""};
+Cell [6] = {
+	name: "Premium Tab",
+	features: "<li>&#8226;Save up to $700 on a new device</li>",
+	promo: ""};
+Cell [7] = {
+	name: "Tablet - EasyPay",
+	features: "<li>&#8226;Get a tablet $0 down</li>",
+	promo: "<li>&#8226;NextIssue Free for 24 Months</li>"};
+Cell [8] = {
+	name: "Tablet - Monthly",
+	features: "<li>&#8226;No term Monthly plan</li>",
+	promo: ""};
+Cell [9] = {
+	name: "Share Everything for Biz",
+	features: "<li>&#8226;Unlimited Calling & Text</li><li>&#8226;Share up to 30GB of data with 10 devices</li><li>&#8226;Roam Like Home</li><li>&#8226;Add Tablet for $0 upfront on EasyPay</li>",
+	promo: "<li>&#8226;Free NHL GameCentre LIVE&#8482; 2015-16 pass</li><li>&#8226;Up to $300 in activation credits</li>"};
+Cell [10] = {
+	name: "Wireless Home Phone",
+	features: "<li>&#8226;Unlimited Calling</li><li>&#8226;Canada-Wide Long Distance</li><li>&#8226;Call Display, Voicemail, Call Waiting</li>",
+	promo: ""};
+
+var CellUL = [];
+var CellSpan = [];
+var ULinner = [];
+var CellContentLI = [];
+var LIdrop = [];
+var par = [];
+var innerText = [];
+var innerLink = [];
+for (line=0;line<10;line++) {
+	par [line] = document.createElement("DIV");
+	CellUL [line]= document.createElement("UL");
+	CellUL [line].className= "package_nav";
+	CellSpan[line] = document.createElement("span");
+	CellSpan[line].id= "CellpackageID"+line;
+	CellContentLI [line]= document.createElement ("LI"); //create first level LI
+	ULinner [line]=document.createElement ("UL"); //create inner UL
+	for (item=0;item<Cell.length;item++){
+		LIdrop[item] = document.createElement ("LI"); //create LI list
+		innerText [item] = document.createTextNode (Cell [item].name);
+		innerLink [item] = document.createElement ("A");
+		innerLink [item].setAttribute ("href","javascript:void(0)");
+		innerLink [item].setAttribute ("onclick","changeWireless("+line+", "+item+")");
+		innerLink [item].appendChild(innerText[item]);
+		LIdrop[item].appendChild(innerLink[item]);
+		ULinner [line].appendChild(LIdrop[item]);
+	} //end item for
+	CellContentLI[line].appendChild (CellSpan [line]);
+	CellContentLI[line].appendChild (ULinner [line]);
+	CellUL [line].appendChild (CellContentLI[line]);
+
+	if (line>0){
+		CellUL[line].className ="hide";
+	} //end if
+	par [line].appendChild (CellUL [line]);
+	document.getElementById("WirelessContent").appendChild(par[line]);	//set UL list in place
+}// end line for
+changeWireless(0,0);
+var CellSel;
+var CellLine;
+function changeWireless (line, item) {
+	CellLine = line;
+	CellSel = item;
+	//var extralinesbutton="&nbsp;<img src=\"http://www.bridgetools.co.uk/template/images/icon_plus.gif\" height=\"12\" width=\"12\" class=\"noprint\" title=\"add an additional line\" onclick=\"addLine("+CellLine+")\">";
+	var removelinesbutton="&nbsp;<img src=\"http://www.bridgetools.co.uk/template/images/icon_minus.gif\" height=\"12\" width=\"12\" class=\"noprint\" title=\"Remove an additional line\" onclick=\"removeLine("+CellLine+")\" id=\"remove"+line+"\">";
+
+	if (CellSel==0) {
+		document.getElementById("CellpackageID"+CellLine).innerHTML=Cell[CellSel].name+"&nbsp; &#9660;";
+	} //end if
+	else if (CellSel!=0 && line==0) {
+		document.getElementById("CellpackageID"+CellLine).innerHTML="<b>Line "+(CellLine+1)+" - "+Cell[CellSel].name+"</b><br>"+"$<input type=\"number\" class=\"cell_price\" id=\"line"+line+"\" onchange=\"calculate()\"></input>/month&nbsp;<br><font size=1>"+Cell[CellSel].features+"</font><br>";	
+		CellLine++;
+		CellUL[CellLine].className="package_nav";
+		changeWireless(CellLine,0);
+	} //end elseif
+	else  {
+		document.getElementById("CellpackageID"+CellLine).innerHTML="<b>Line "+(CellLine+1)+" - "+Cell[CellSel].name+"</b><br>"+"$<input type=\"number\" class=\"cell_price\" id=\"line"+line+"\" onchange=\"calculate()\"></input>/month&nbsp;"+removelinesbutton+"<br><font size=1>"+Cell[CellSel].features+"</font><br>";	
+		CellLine++;
+		CellUL[CellLine].className="package_nav";
+		changeWireless(CellLine,0);
+	} //end else
+	changeCellPromo(0);
+	calculate ();
+} //end changeWireless function
+
+function addLine (line) {
+	CellUL[line+1].className="package_nav";
+	changeWireless(line+1,0);
+}//end addLine function
+
+function removeLine (line) {
+	document.getElementById("line"+line).value=0;
+	CellUL[line].className="hide";
+	CellLine--;
+	document.getElementById("remove"+CellLine).className="show";
+
+	calculate ();
+	changeCellPromo();
+}//end removeLine function
+
+</script>
+</tr>
+
+<!--------------------------- Promos --------------------------------->
+<tr class="promorow">
+<!--Internet Promos -->
+<td valign="top"><div class="promotext">Promo</div>
+<ul class="promo_nav"><li><span id="IntPromopackageID"></span>
+<ul>
+<li><a href="#" onclick="changeIntPromo(0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="IntPromoContent"></span>
+</ul></li></ul>
+</td>
+<script>
+	
+var IntPromo = [];
+IntPromo [0] = {
+	name: "Current Promotion",
+	condition: "",
+	month3: "0",
+	month12: "0",
+	month24: "0"};
+IntPromo [1] = {
+	name: "Save $25 for 3 months",
+	condition: "Internet 30+",
+	month3: "25",
+	month12: "0",
+	month24: "0",
+	features: "<li>&#8226;No Contract</li>",
+	code: "W0Y"};
+IntPromo [2] = {
+	name: "Save $30 for 3 months,<br>Then $17.50 for 2 Years",
+	condition: "Internet 30+ & Bastic TV+",
+	month3: "30",
+	month12: "17.50",
+	month24: "17.50",
+	features: "<li>&#8226;Free premium TechXpert&#8482; support</li><li>&#8226;No price increases for 2 years</li>",
+	code: "U40 - Bundle"};
+IntPromo [3] = {
+	name: "Save $5 for 1 Years",
+	condition: "Internet 15",
+	month3: "5",
+	month12: "5",
+	month24: "0",
+	features: "<li>&#8226;Waived installation Fee (connection fee still applies)</li><li>&#8226;No Contract</li>",
+	code: "X00"};
+IntPromo [4] = {
+	name: "Save $10 for 1 Years",
+	condition: "Ignite 30",
+	month3: "10",
+	month12: "10",
+	month24: "0",
+	features: "<li>&#8226;Waived installation Fee (connection fee still applies)</li><li>&#8226;No Contract</li>",
+	code: "X00"};
+IntPromo [5] = {
+	name: "Save $15 for 1 Years",
+	condition: "Ignite 60",
+	month3: "15",
+	month12: "15",
+	month24: "0",
+	features: "<li>&#8226;Waived installation Fee (connection fee still applies)</li><li>&#8226;No Contract</li>",
+	code: "X00"};
+IntPromo [6] = {
+	name: "Save $20 for 1 Years",
+	condition: "Ignite 100+",
+	month3: "20",
+	month12: "20",
+	month24: "0",
+	features: "<li>&#8226;Waived installation Fee (connection fee still applies)</li><li>&#8226;No Contract</li>",
+	code: "X00"};
+IntPromo [7] = {
+	name: "Save $15 on Ignite 15+ for 2 Years",
+	condition: "New Cx on Ignite 15+. Limited Time",
+	month3: "15",
+	month12: "15",
+	month24: "15",
+	features: "<li>&#8226;2-year term required</li><li>&#8226;Limited Time Offer</li>",
+	code: "X12"};
+IntPromo [8] = {
+	name: "Save $23 on Ignite 100+ for 2 Years",
+	condition: "New Cx on Ignite 100+. Expires April 30. OFFR1771",
+	month3: "23",
+	month12: "23",
+	month24: "23",
+	features: "<li>&#8226;2-year term required</li><li>&#8226;Limited Time Offer, ends March 31, 2016</li>",
+	code: "X13"};
+IntPromo [9] = {
+	name: "Save $33 on Ignite 100+ for 2 Years",
+	condition: "Ignite 100+ in 3 Product Bundle. Expires April 30. OFFR1963",
+	month3: "33",
+	month12: "33",
+	month24: "33",
+	features: "<li>&#8226;2-year term required</li><li>&#8226;Limited Time Offer, ends April 30, 2016</li>",
+	code: "U4P"};
+IntPromo [10] = {
+	name: "Save $31 on Ignite 100+ for 2 Years",
+	condition: "Ignite 100+ and TV. Expires April 30. OFFR1964",
+	month3: "31",
+	month12: "31",
+	month24: "31",
+	features: "<li>&#8226;2-year term required</li><li>&#8226;Limited Time Offer, ends April 30, 2016</li>",
+	code: "U4Q"};
+var GenerateIntPromo="";
+for (loop=1;loop<IntPromo.length;loop++)
+{ 
+	GenerateIntPromo+="<li><a href=\"#\" onclick=\"changeIntPromo("+loop+")\">"+IntPromo[loop].name+"<br><font color=\"red\">"+IntPromo[loop].condition+"</font><br><b>"+IntPromo[loop].code+"</b></a></li>";
+} //end for
+
+document.getElementById("IntPromoContent").innerHTML=GenerateIntPromo;
+if (IntSel != 0){
+document.getElementById("IntPromopackageID").innerHTML=IntPromo[0].name+"&nbsp; &#9660;<br><font size=1>"+Internet[IntSel].promo+"</font>";
+}
+else {
+	document.getElementById("IntPromopackageID").innerHTML=IntPromo[0].name+"&nbsp; &#9660;<br>";
+}
+var IntPromoSel=0;
+
+function changeIntPromo (num) {
+	IntPromoSel=num
+	if (IntPromoSel==0) {
+		document.getElementById("IntPromopackageID").innerHTML=IntPromo[IntPromoSel].name+"&nbsp; &#9660;<br><font size=1>"+Internet[IntSel].promo+"</font>";
+	} //end if
+	else {
+		document.getElementById("IntPromopackageID").innerHTML="<b>"+IntPromo[IntPromoSel].name+"</b><br><font size=1>"+Internet[IntSel].promo+IntPromo[IntPromoSel].features+"</font>";	
+	} //end else
+	calculate();
+}  //end changeIntPromo function
+
+
+
+</script></td>
+
+<!-- TV Promo -->
+<td valign="top"><div class="promotext">Promo</div>
+<ul class="promo_nav"><li><span id="TVPromopackageID"></span>
+<ul>
+<li><a href="#" onclick="changeTVPromo(0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="TVPromoContent"></span>
+</ul></li></ul>
+
+</td>
+<script>
+	
+var TVPromo = [];
+TVPromo [0] = {
+	name: "Current Promotion",
+	month3: "0",
+	month12: "0",
+	month24: "0"};
+TVPromo [1] = {
+	name: "Save $30 for 3 months,<br>and $7.45 off NextBox 3.0 for 2 Years",
+	condition: "Digital Basic, Nextbox 3.0 & Ignite 30+",
+	month3: "37.45",
+	month12: "7.45",
+	month24: "7.45",
+	features: "<li>&#8226;No price increases for 2 years</li>",
+	code: "U40 - Bundle with Nextbox 3.0"};
+TVPromo [2] = {
+	name: "Save $35 for 3 months,<br>and $7.45 off NextBox 3.0 for 2 Years",
+	condition: "Digital Plus/VIP, Nextbox 3.0 & Ignite 30+",
+	month3: "42.45",
+	month12: "7.45",
+	month24: "7.45",
+	features: "<li>&#8226;No price increases for 2 years",
+	code: "U40 - Bundle with Nextbox 3.0"};
+TVPromo [3] = {
+	name: "Save $30 for 3 months,<br>and $5.45 off  Nextbox 2.0 for 2 Years",
+	condition: "Digital Basic, HD terminal & Ignite 30+",
+	month3: "35.45",
+	month12: "5.45",
+	month24: "5.45",
+	features: "<li>&#8226;No price increases for 2 years</li>",
+	code: "U40 - Bundle with HD terminal"};
+TVPromo [4] = {
+	name: "Save $35 for 3 months,<br>and $5.45 off NextBox 2.0 for 2 Years",
+	condition: "Digital Plus/VIP, HD terminal & Ignite 30+",
+	month3: "40.45",
+	month12: "5.45",
+	month24: "5.45",
+	features: "<li>&#8226;No price increases for 2 years",
+	code: "U40 - Bundle with HD terminal"};
+TVPromo [5] = {
+	name: "Save $32.95 on TV for 2 Years",
+	condition: "Basic TV with Nextbox 3.0 & Ignite 30+. Expires March 31",
+	month3: "20",
+	month12: "20",
+	month24: "20",
+	features: "<li>&#8226;No price increases for 2 years</li><li>&#8226;Limited Time, ends March 31, 2016</li>",
+	code: "U4P - Bundle"};
+TVPromo [6] = {
+	name: "Save $20 on TV + Free Nexbox for 2 years",
+	condition: "Basic TV+ with Nextbox 3.0 & Ignite 60+. Expires March 31",
+	month3: "44.95",
+	month12: "44.95",
+	month24: "44.95",
+	features: "<li>&#8226;No price increases for 2 years</li><li>&#8226;Free Nextbox 3.0</li><li>&#8226;Limited Time, ends March 31, 2016</li>",
+	code: "U4Q - Bundle"};
+
+var GenerateTVPromo="";
+for (loop=1;loop<TVPromo.length;loop++)
+{ 
+	GenerateTVPromo+="<li><a href=\"#\" onclick=\"changeTVPromo("+loop+")\">"+TVPromo[loop].name+"<br><font color=\"red\">"+TVPromo[loop].condition+"</font><br><b>"+TVPromo[loop].code+"</b></a></li>";
+} //end for
+
+document.getElementById("TVPromoContent").innerHTML=GenerateTVPromo;
+if (TVSel != 0){
+document.getElementById("TVPromopackageID").innerHTML=TVPromo[0].name+"&nbsp; &#9660;<br><font size=1>"+TV[TVSel].promo+"</font>";
+}
+else {
+	document.getElementById("TVPromopackageID").innerHTML=TVPromo[0].name+"&nbsp; &#9660;<br>";
+}
+var TVPromoSel=0;
+
+function changeTVPromo (num) {
+TVPromoSel=num
+if (TVPromoSel==0) {
+	document.getElementById("TVPromopackageID").innerHTML=TVPromo[TVPromoSel].name+"&nbsp; &#9660;";
+	} //end if
+else {
+document.getElementById("TVPromopackageID").innerHTML="<b>"+TVPromo[TVPromoSel].name+"</b><br><font size=1>"+TV[TVSel].promo+TVPromo[TVPromoSel].features+"</font>";	
+	} //end else
+calculate();
+}  //end changeTVPromo function
+
+</script></td>
+
+<!-- RHP Promo -->
+<td valign="top"><div class="promotext">Promo</div>
+
+<ul class="promo_nav"><li><span id="RHPPromopackageID"></span>
+<ul>
+<li><a href="#" onclick="changeRHPPromo(0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="RHPPromoContent"></span>
+</ul></li></ul>
+
+</td>
+<script>
+	
+var RHPPromo = [];
+RHPPromo [0] = {
+	name: "Current Promotion",
+	month3: "0",
+	month12: "0",
+	month24: "0"};
+RHPPromo [1] = {
+	name: "Save $27.92 for 2 years",
+	condition: "Must have TV/Internet",
+	month3: "27.92",
+	month12: "27.92",
+	month24: "27.92",
+	features: "<li>&#8226;No price increases for 2 years</li>",
+	expiry: "",
+	code: "SRU - Essential"};
+RHPPromo [2] = {
+	name: "Save $32.92 for 2 years",
+	condition: "Must have TV/Internet",
+	month3: "32.92",
+	month12: "32.92",
+	month24: "32.92",
+	features: "<li>&#8226;No price increases for 2 years</li>",
+	expiry: "",
+	code: "SRU - Fav/Delux"};
+
+
+var GenerateRHPPromo="";
+for (loop=1;loop<RHPPromo.length;loop++)
+{ 
+	GenerateRHPPromo+="<li><a href=\"#\" onclick=\"changeRHPPromo("+loop+")\">"+RHPPromo[loop].name+"<br><font color=\"red\">"+RHPPromo[loop].condition+"</font><br><b>"+RHPPromo[loop].code+"</b></a></li>";
+} //end for
+
+document.getElementById("RHPPromoContent").innerHTML=GenerateRHPPromo;
+if (RHPSel != 0){
+document.getElementById("RHPPromopackageID").innerHTML=RHPPromo[0].name+"&nbsp; &#9660;<br><font size=1>"+RHP[RHPSel].promo+"</font>";
+}
+else {
+	document.getElementById("RHPPromopackageID").innerHTML=RHPPromo[0].name+"&nbsp; &#9660;<br>";
+}
+var RHPPromoSel=0;
+function changeRHPPromo (num) {
+	RHPPromoSel=num
+	if (RHPPromoSel==0) {
+		document.getElementById("RHPPromopackageID").innerHTML=RHPPromo[RHPPromoSel].name+"&nbsp; &#9660;";
+	} //end if
+	else {
+		document.getElementById("RHPPromopackageID").innerHTML="<b>"+RHPPromo[RHPPromoSel].name+"</b><br><font size=1>"+RHP[RHPSel].promo+RHPPromo[RHPPromoSel].features+"</font>";	
+	} //end else
+	calculate();
+}  //end changeRHPPromo function
+</script></td>
+
+<!-- SHM Promo -->
+<td valign="top"><div class="promotext">Promo</div>
+<ul class="promo_nav"><li><span id="SHMPromopackageID"></span>
+<ul>
+<li><a href="#" onclick="changeSHMPromo(0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="SHMPromoContent"></span>
+</ul></li></ul>
+</td>
+
+<!-- Wireless Promo -->
+<td valign="top"><div class="promotext">Promo</div>
+	
+<ul class="promo_nav"><li><span id="CellPromopackageID"></span>
+<ul>
+<li><a href="#" onclick="changeCellPromo(0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="CellPromoContent"></span>
+</ul></li></ul>
+
+</td>
+<script>
+var CellPromo=[];
+CellPromo [0] = {
+	name: "Current Promotion",
+	month3: "0",
+	month12: "0",
+	month24: "0"};
+CellPromo [1] = {
+	name: "Free WHP for 12 months",
+	condition: "Share Everything Plan",
+	month3: "13",
+	month12: "13",
+	month24: "0",
+	features: "<li>&#8226;Save $13 off WHP for 12 months</li><li>&#8226;Save $39.99 off the cost of WHP device",
+	expiry: "",
+	code: ""};
+
+var GenerateCellPromo="";
+for (loop=1;loop<CellPromo.length;loop++)
+{ 
+	GenerateCellPromo+="<li><a href=\"#\" onclick=\"changeCellPromo("+loop+")\">"+CellPromo[loop].name+"<br><font color=\"red\">"+CellPromo[loop].condition+"</font><br><b>"+CellPromo[loop].code+"</b></a></li>";
+} //end for
+
+document.getElementById("CellPromoContent").innerHTML=GenerateCellPromo;
+if (CellSel != 0){
+document.getElementById("CellPromopackageID").innerHTML=CellPromo[0].name+"&nbsp; &#9660;<br><font size=1>"+Cell[CellSel].promo+"</font>";
+}
+else {
+	document.getElementById("CellPromopackageID").innerHTML=CellPromo[0].name+"&nbsp; &#9660;<br>";
+}
+var CellPromoSel=0;
+
+function changeCellPromo (num) {
+	CellPromoSel=num
+	var CellInclusive="";	
+	
+	for (i=0;i<CellLine;i++){
+			CellInclusive+=Cell[CellSel].promo;
+		}//end for
+		
+	if (CellPromoSel==0) {
+		document.getElementById("CellPromopackageID").innerHTML=CellPromo[CellPromoSel].name+"&nbsp; &#9660;<br><font size=1>"+Cellinclusive;
+	} //end if
+	else {
+		document.getElementById("CellPromopackageID").innerHTML="<b>"+CellPromo[CellPromoSel].name+"</b><br><font size=1>"+CellPromo[CellPromoSel].features+CellInclusive+"</font>";
+	} //end else
+	calculate();
+} //end function
+
+</script>
+
+</tr>
+
+<!-- Monthly Total -->
+<tr><td colspan=5 class=totaltable>
+<table><tr><td width="380px" class=totaltext>
+<span id=totalt1>Regular Rate:<br></span>
+<span id=totalt2>Promotional Rate Months 1-3:<br></span>
+<span id=totalt3>Promotional Rate Months up to 12:<br></span>
+<span id=totalt4>Promotional Rate Months up to 24:<br></span>
+</td><td class=totalprice>
+<span id=totalp1><br></span>
+<span id=totalp2><br></span>
+<span id=totalp3><br></span>
+<span id=totalp4><br></span>
+<script type="text/javascript">
+var regtotal=0;
+var p2total=0;  //1-33month promo
+var p3total=0;  //4-12month promo
+var p4total=0;  //13-24month promo
+
+var maxtotals=1;
+var celltotal;
+for (i=1;i<=4;i++){
+if (i>maxtotals){
+	document.getElementById("totalp"+i).className="hide";
+	document.getElementById("totalt"+i).className="hide";
+	} //end if
+} //end for
+var IntTot=0;
+var TVTot =0;
+var RHPTot=0;
+var SHMTot=0;
+calculate();
+
+function calculate (){
+regtotal=0;
+p2total=0;
+p3total=0;
+p4total=0;
+celltotal=0;
+IntTot=Number(Internet[IntSel].price);
+TVTot =Number(TV[TVSel].price);
+for (i=1;i<(maxbox+1);i++)
+{
+	if (i<=BoxCount){
+TVTot+=Number(cablebox[BoxSel[i]].price);
+}
+} //end for i
+RHPTot=Number(RHP[RHPSel].price);
+for (i=1;i<(maxld+1);i++)
+{
+	if (i<=LDCount){
+RHPTot+=Number(longdistance[LDSel[i]].price);
+}
+}//end for i
+SHMTot=Number(SHM[SHMSel].price);
+
+
+//reg price
+for (line=0; line<CellLine; line++){
+	celltotal+=Number(document.getElementById("line"+line).value);
+	} //end for
+
+//reg total
+regtotal+= IntTot + TVTot+RHPTot+SHMTot+Number(celltotal);
+
+//month 1-3 total
+p2total=Number(regtotal)-Number(IntPromo[IntPromoSel].month3)-Number(TVPromo[TVPromoSel].month3)-Number(RHPPromo[RHPPromoSel].month3);
+
+//month 4-12 total
+p3total=Number(regtotal)-Number(IntPromo[IntPromoSel].month12)-Number(TVPromo[TVPromoSel].month12)-Number(RHPPromo[RHPPromoSel].month12);
+
+//month 13-24 total
+p4total=Number(regtotal)-Number(IntPromo[IntPromoSel].month24)-Number(TVPromo[TVPromoSel].month24)-Number(RHPPromo[RHPPromoSel].month24);
+
+
+if (isNaN(regtotal) ==true) {
+	document.getElementById("totalp1").innerHTML = "$0.00<br>";
+	}//end if
+else{
+	document.getElementById("totalp1").innerHTML = "$"+regtotal.toFixed(2)+"<br>";
+	}//end else
+	
+//check is 1-3month is used
+if (isNaN(p2total) ==true)
+	{
+	document.getElementById("totalp2").className="hide";
+	document.getElementById("totalt2").className="hide";
+	}//end if
+else if (p2total == regtotal) {
+	}
+else{
+	document.getElementById("totalp2").className="show";
+	document.getElementById("totalt2").className="show";
+	document.getElementById("totalp2").innerHTML = "$"+p2total.toFixed(2)+"<br>";
+	} //end else
+
+//check is 4-12 month is used
+if (isNaN(p3total) ==true)
+	{
+	document.getElementById("totalp3").className="hide";
+	document.getElementById("totalt3").className="hide";
+	}//end if
+else if (p3total == p4total) {
+	}
+else {
+	document.getElementById("totalp3").className="show";
+	document.getElementById("totalt3").className="show";
+	document.getElementById("totalp3").innerHTML = "$"+p3total.toFixed(2)+"<br>";
+} //end else
+
+//check is 12-24 month is used
+if (isNaN(p4total) ==true)
+	{
+	document.getElementById("totalp4").className="hide";
+	document.getElementById("totalt4").className="hide";
+	}//end if
+else if (p4total == p2total && p4total != 0 && p4total != regtotal) {
+	document.getElementById("totalp4").className="show";
+	document.getElementById("totalt4").className="show";
+	document.getElementById("totalp4").innerHTML = "$"+p4total.toFixed(2)+"<br>";
+	document.getElementById("totalp2").className="hide";
+	document.getElementById("totalt2").className="hide";
+	}
+else if (p3total == p2total && p3total != 0 && p3total != regtotal) {
+	document.getElementById("totalp3").className="show";
+	document.getElementById("totalt3").className="show";
+	document.getElementById("totalp3").innerHTML = "$"+p3total.toFixed(2)+"<br>";
+	document.getElementById("totalp2").className="hide";
+	document.getElementById("totalt2").className="hide";
+	}
+else if (p4total == regtotal) {
+	document.getElementById("totalp4").className="hide";
+	document.getElementById("totalt4").className="hide";
+	}
+else if (p4total != regtotal && p4total != p2total) {
+	document.getElementById("totalp4").className="show";
+	document.getElementById("totalt4").className="show";
+	document.getElementById("totalp4").innerHTML = "$"+p4total.toFixed(2)+"<br>";
+	} //end else
+
+} //end calculate()
+</script>
+
+</td></tr></table> <!-- end innter Total Table -->
+</td> <!-- end Total -->
+</tr>
+</table>  <!-- end Main Table -->
+<br>
+
+<!-------------------------- One Time Costs --------------------------->
+<table class="mytable" width=1000><tr>
+<td class="header" colspan=3 width=600><font size=3><b><center>One-time Costs</td>
+
+<td rowspan=4 valign=top width=400><div class="promotext">Notes</div>
+<textarea class="notes" rows=8 cols=58></textarea>
+</td></tr>
+
+<tr><td>Installation</td><td class="install"><select id="install" onchange="calcVals()">
+<option value="0">N/A</option>
+<option value="49.99">$49.99 Technician Install</option>
+<option value="99.99">$99.99 Professional Install (SHM)</option>
+<option value="0">Self Install <font size=2>(must have existing connection)</font></option>
+</select></td>
+
+
+<!--------------- Bill Credits -------------------->
+<td valign="top" rowspan="4" class="promorow" width=220><div class="promotext">Promo</div>
+<ul class="promo_nav"><li><span id="BillCreditID1"></span>
+<ul>
+<li><a href="#" onclick="changeBillCredit(1,0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="BillCreditContent1"></span>
+</ul></li></ul>
+<br>
+<ul class="promo_nav"><li><span id="BillCreditID2"></span>
+<ul>
+<li><a href="#" onclick="changeBillCredit(2,0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="BillCreditContent2"></span>
+</ul></li></ul>
+<br>
+<ul class="promo_nav"><li><span id="BillCreditID3"></span>
+<ul>
+<li><a href="#" onclick="changeBillCredit(3,0)"><b>Regular Promotion</b><br>&nbsp;</a></li>
+<span id="BillCreditContent3"></span>
+</ul></li></ul>
+
+<script  type="text/javascript">
+var BillCredit = [];
+BillCredit [0] = {
+	name: "Current Promotion",
+	code: "",
+	value: "0",
+	conditions: "",
+	expiry: "",
+	feature: ""};
+BillCredit [1] = {
+	name: "Bill Credit for Internet",
+	code: "WI7",
+	value: "50",
+	condition: "Internet + TV",
+	expiry: "until further notice",
+	feature: "<li>&#8226; Applies to 2nd or 3rd invoice"};
+BillCredit [2] = {
+	name: "Bill Credit for TV",
+	code: "DW5",
+	value: "50",
+	condition: "Internet + TV",
+	expiry: "until further notice",
+	feature: "<li>&#8226; Applies to 2nd or 3rd invoice"};
+BillCredit [3] = {
+	name: "Waived Installation Fee",
+	code: "inclusive",
+	value: "49.99",
+	condition: "to use with codes X00, U40",
+	expiry: "until further notice",
+	feature: "<li>&#8226; Credit for Technician Installation Fee"};
+BillCredit [4] = {
+	name: "Bill Credit for RHP",
+	code: "R2W",
+	value: "50",
+	condition: "regular price RHP with another product",
+	expiry: "until further notice",
+	feature: "<li>&#8226; Applies to 2nd or 3rd invoice"};
+
+var GenerateBillCredit="";
+var BillCreditSel=[];
+var BillCreditCount=1;
+var maxbillcredit=3;
+
+for (num=1;num<(maxbillcredit+1);num++)
+{ 
+	for (type=1;type<BillCredit.length;type++)
+	{
+	BillCreditSel[num]=0;
+	GenerateBillCredit+="<li><a href=\"#\" onclick=\"changeBillCredit("+num+","+type+")\"><b>$"+BillCredit[type].value+" "+BillCredit[type].name+"</b><br><font color=\"red\">"+BillCredit[type].condition+"</font><br><b>"+BillCredit[type].code+"</b><br>"+BillCredit[type].expiry+"</a></li>";
+	} //end for type
+document.getElementById("BillCreditContent"+num).innerHTML=GenerateBillCredit;
+
+if (BillCreditSel[num] != 0){
+	document.getElementById("BillCreditID"+num).innerHTML=BillCredit[0].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("BillCreditID"+num).innerHTML=BillCredit[0].name+"&nbsp; &#9660;<br>";
+	}//end else
+if (num<maxbillcredit){
+document.getElementById("BillCreditID"+(Number(num)+1)).className="hide";
+}
+GenerateBillCredit="";
+} //end for num
+
+
+
+
+
+function changeBillCredit (num ,type) {
+BillCreditSel[num]=type
+if (BillCreditSel[num]==0) {
+	document.getElementById("BillCreditID"+num).innerHTML=BillCredit[type].name+"&nbsp; &#9660;";
+	} //end if
+else {
+	document.getElementById("BillCreditID"+num).innerHTML="<b>$"+BillCredit[type].value+" "+BillCredit[type].name+"</b><br><font size=1>"+BillCredit[type].feature+"</font>";	
+	} //end else
+if (num==BillCreditCount && num<maxbillcredit){
+		document.getElementById("BillCreditID"+(Number(num)+1)).className="show";
+		BillCreditCount++;
+	} //end if
+
+
+calcVals();
+} //end function
+
+</script></tr>
+<tr><td>Activation Charge</td><td class="install"><select id="activation" onchange="calcVals()">
+<option value="0">No Activation Charge</option>
+<option value="14.95">$14.95 Internet Activation Charge</option>
+</select></tr>
+
+<tr><td><font size=3>Hardware Purchase</td><td>$<input type=text id="hardware" style="width:60px;" onchange="calcVals()"></tr>
+
+<tr class="normalrow"><td><font size=3>Other</td><td>$<input type=text id="other" style="width:60px;" onchange="calcVals()">
+<td rowspan=2><center><font size=1>*All prices are before HST. Prices and Promotions are subject to change and are for quotation purposes only.  Actual bill amount may differ.  One-time charges will be on first bill, whereas credits may be applied on 2nd or 3rd bill.  Printed on <span id="date"></span><script>var d = new Date();document.getElementById("date").innerHTML = d.toDateString();</script>. </td>
+
+</tr>
+
+
+<!----- One time total ---->
+<tr><td colspan=3><div class="totaltable"><span class="totaltext"><center>One-time Total: $<span id="results4" class="totalprice"></span></div></td></tr>
+</table>
+
+
+<!-- calculate script -->
+<script type="text/javascript">
+document.getElementById("results4").innerHTML="49.99"; //set total to $49.99 for start (install fee)
+var cred;
+function calcVals() {
+cred=0;
+var inst=Number(document.getElementById("install").value);
+var act=Number(document.getElementById("activation").value);
+
+
+//calculate bill credits
+for (i=1;i<(maxbillcredit+1);i++){
+
+	cred+=Number(BillCredit[BillCreditSel[i]].value)*-1;
+	
+}
+
+var hard=Number(document.getElementById("hardware").value);
+var oth=Number(document.getElementById("other").value);
+var t4=parseFloat(inst+act+cred+hard+oth).toFixed(2);
+document.getElementById("results4").innerHTML=t4;
+
+}
+
+//hide unused
+function show (val, item) {
+for (loop=1;loop<=item;loop++) {
+var elem = document.getElementById (val+loop);
+if(elem) {
+if( elem.className=="" || elem.className=="show") {					
+elem.className = 'hide'; }
+else {
+elem.className = 'show'; } 
+} // end if
+} // end for
+} // end function
+</script>
+
+</body></html>
